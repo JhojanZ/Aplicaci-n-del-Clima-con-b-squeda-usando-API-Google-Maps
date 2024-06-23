@@ -41,14 +41,30 @@ function initMap() {
 
 async function getWeather(lat, lon) {
     // Obtener el clima actual usando la API de Open Meteo
-    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m`);
-    console.log(lat)
-    console.log(lon)
+    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&hourly=temperature_2m`);
     const data = await response.json();
+    console.log(data)
+
+    const weather = data.current.weather_code;
+    const wind = data.current.wind_speed_10m;
     
     // Actualizar el contenido del elemento con la temperatura
     const temperatureElement = document.getElementById("temperature");
     temperatureElement.textContent = `Temperatura: ${data.current.temperature_2m} °C`;
+
+    const windElement = document.getElementById("wind");
+    windElement.textContent = `Viento: ${wind} °C`;
+    console.log(weather)
+
+    const weatherElement = document.getElementById("weather-img");
+       // Mostrar la imagen correspondiente según el código del clima
+       if (weather === 0 || weather == 1 || weather == 2) {
+        weatherElement.src = "https://static.vecteezy.com/system/resources/previews/000/449/867/non_2x/sun-vector-icon.jpg";
+        } else if ([45, 48, 71, 73, 75, 77, 85, 86].includes(weather)) {
+            weatherElement.src = "https://st3.depositphotos.com/2398103/14532/v/950/depositphotos_145320043-stock-illustration-red-question-mark-icon.jpg";
+        } else {
+            weatherElement.src = "https://th.bing.com/th/id/OIP.AlacEyAEr3-6JifEyqSXFAHaHa?w=178&h=180&c=7&r=0&o=5&pid=1.7";
+        }
 }
 
 // Cargar el mapa cuando se carga la página
