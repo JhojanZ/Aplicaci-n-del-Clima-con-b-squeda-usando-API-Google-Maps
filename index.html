@@ -13,24 +13,32 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Aplicación del clima</h1>
-        <input id="location-input" type="text" placeholder="Entrar a la localización">
-        <div id="map"></div>
-        <div id="weather-info">
-            <h2>Current weather</h2>
-            <p id="wind">Viento: -- km/h </p>
-            <p id="temperature">Temperatura: -- °C</p>
-            <div>
-                <img src="" alt="">
+    <main>
+        <div class="container">
+            <h1 id="title">Aplicación del Clima</h1>
+            <input id="location-input" type="text" placeholder="Entrar a la localización">
+            <div id="map"></div>
+            <div class="weather-info">
+                <h2 class="info">Current weather</h2>
+                <p id="wind">Viento: -- km/h </p>
+                <p id="temperature">Temperatura: -- °C</p>
+                <div>
+                    <img class ="weather-icon" src="" alt="">
+                </div>
+
+                <div>
+                    <!--
+                    linea corrcta
+                    <img id="weather-img" src="" alt="">
+                    -->
+
+                    <!-- eliminar despues test-->
+                    <img src="https://th.bing.com/th/id/OIP.AlacEyAEr3-6JifEyqSXFAHaHa?w=178&h=180&c=7&r=0&o=5&pid=1.7";
+                    class ="weather-icon">
+                </div>
             </div>
         </div>
-
-        <div>
-            <img id="weather-img" src="" alt="">
-        </div>
-
-    </div>
+    </main>
 
 </body>
 

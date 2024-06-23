@@ -59,11 +59,17 @@ async function getWeather(lat, lon) {
     const weatherElement = document.getElementById("weather-img");
        // Mostrar la imagen correspondiente según el código del clima
        if (weather === 0 || weather == 1 || weather == 2) {
-        weatherElement.src = "https://static.vecteezy.com/system/resources/previews/000/449/867/non_2x/sun-vector-icon.jpg";
+            weatherElement.src = "https://static.vecteezy.com/system/resources/previews/000/449/867/non_2x/sun-vector-icon.jpg";
+            weatherElement.className = "weather-icon";
+            weatherElement.alt = "Soleado";
         } else if ([45, 48, 71, 73, 75, 77, 85, 86].includes(weather)) {
             weatherElement.src = "https://st3.depositphotos.com/2398103/14532/v/950/depositphotos_145320043-stock-illustration-red-question-mark-icon.jpg";
+            weatherElement.className = "weather-icon";
+            weatherElement.alt = "Lluvia";
         } else {
             weatherElement.src = "https://th.bing.com/th/id/OIP.AlacEyAEr3-6JifEyqSXFAHaHa?w=178&h=180&c=7&r=0&o=5&pid=1.7";
+            weatherElement.className = "weather-icon";
+            weatherElement.alt = "Desconocido";
         }
 }
 
