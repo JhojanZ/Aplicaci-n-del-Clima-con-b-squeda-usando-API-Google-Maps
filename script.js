@@ -5,7 +5,7 @@ let marker;
 function initMap() {
     // Inicializar el mapa
     map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 4.8087174, lng: -75.690601 }, //Coordenadas de Pereira
+        center: { lat: 4.8087174, lng: -75.690600 }, //Coordenadas de Pereira
         zoom: 10,
     });
 

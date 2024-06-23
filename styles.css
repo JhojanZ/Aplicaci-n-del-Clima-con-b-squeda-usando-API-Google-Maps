@@ -17,7 +17,12 @@ main {
 }
 
 #title {
-    margin: 20px;
+    background-color: rgba(75, 240, 0, 0.288);
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    padding: 10px 0px;
+    border-radius: 20px 20px 0px 0px;
+    overflow: hidden;
 }
 
 .aux-text{
