@@ -5,8 +5,8 @@ let marker;
 function initMap() {
     // Inicializar el mapa
     map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 4.8087174, lng: -75.690601 },
-        zoom: 8,
+        center: { lat: 4.8087174, lng: -75.690601 }, //Coordenadas de Pereira
+        zoom: 10,
     });
 
     // Inicializar el campo de autocomplete
@@ -43,10 +43,10 @@ async function getWeather(lat, lon) {
     // Obtener el clima actual usando la API de Open Meteo
     const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&hourly=temperature_2m`);
     const data = await response.json();
-    console.log(data)
 
     const weather = data.current.weather_code;
     const wind = data.current.wind_speed_10m;
+    const precipitation = data.current.precipitation;
     
     // Actualizar el contenido del elemento con la temperatura
     const temperatureElement = document.getElementById("temperature");
@@ -54,7 +54,9 @@ async function getWeather(lat, lon) {
 
     const windElement = document.getElementById("wind");
     windElement.textContent = `Viento: ${wind} °C`;
-    console.log(weather)
+
+    const precipitationElement = document.getElementById("precipitation");
+    precipitationElement.textContent = `Precipitación: ${precipitation} mm`;
 
     const weatherElement = document.getElementById("weather-img");
        // Mostrar la imagen correspondiente según el código del clima
